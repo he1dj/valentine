@@ -23,23 +23,24 @@ import Header from "../components/Header.astro";
 </html>
 
 <style>
+  @font-face {
+    font-family: LoveAdelia;
+    src: url("../assets/fonts/LoveAdelia.ttf") format("truetype");
+  }
   :root {
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'LoveAdelia';
     }
-  }
-  @font-face {
-    font-family: LoveAdelia;
-    src: url("../assets/fonts/LoveAdelia.ttf") format("truetype");
   }
   html,
   body {
-    font-family: "LoveAdelia";
     color: white;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background: rgb(255, 137, 245);
     background: -moz-radial-gradient(
       circle,
@@ -62,14 +63,18 @@ import Header from "../components/Header.astro";
         height: 100%;
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        min-height: 100dvh;
+        align-items: center;
 				padding: 3rem;
       }
       a {
         cursor: pointer;
         text-decoration: none;
       }
+			button {
+				cursor: pointer;
+			}
     }
   }
 </style>

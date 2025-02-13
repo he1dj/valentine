@@ -3,18 +3,114 @@
 ---
 
 <section id="hero">
-	<h1>Dear Anna Kim,</h1>
-	<h2>will you be my valentine?</h2>
+  <h1>Dear Anna Kim,</h1>
+  <h2>will you be my valentine?</h2>
+
+  <div id="options">
+    <button id="yes-btn">Yes</button>
+    <button id="no-btn">No</button>
+  </div>
+</section>
+
+<section id="next-section">
+  <h1>Yay! 💖</h1>
 </section>
 
 <style>
-	h1 {
-		font-size: 6rem;
-		font-weight: 600;
-	}
-	h2 {
-		font-size: 3rem;
-		font-weight: 400;
-		text-align: center;
-	}
+  #hero {
+    height: 100dvh;
+  }
+  #next-section {
+    visibility: hidden;
+		opacity: 0;
+		height: 0;
+		display: flex;
+    justify-content: center;
+    align-items: center;
+		transition: opacity 0.6s ease-in-out, height 0.6s ease-in-out;
+  }
+  h1 {
+    font-size: 6rem;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+  }
+  #options {
+    margin-top: 50px;
+    position: relative;
+    height: 200px;
+    width: 100%;
+    button {
+      height: 50px;
+      width: 150px;
+      border: none;
+      background-color: white;
+      color: black;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      transition: all 0.3s ease-in-out;
+      top: 50%;
+      transform: translateY(+50%);
+      border: 1px solid rgb(90, 49, 76);
+      &:nth-child(1) {
+        left: 0;
+        z-index: 5;
+        &:hover {
+          background-color: rgb(90, 49, 76);
+          color: white;
+        }
+      }
+      &:nth-child(2) {
+        right: 0;
+        transition: all 0.1s ease-in-out;
+      }
+    }
+  }
 </style>
+
+<script>
+  const buttonHeight = 50;
+  const buttonWidth = 150;
+  const buttonsContainer = document.getElementById("options")!;
+  const maxHeight = buttonsContainer.offsetHeight - buttonHeight;
+  const maxWidth = window.innerWidth / 2;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("no-btn")!;
+
+    button.addEventListener("mouseover", () => {
+      let newLeft, newTop;
+
+      do {
+        newLeft = Math.floor(Math.random() * (maxWidth + 1));
+      } while (Math.abs(newLeft - button.offsetLeft) < buttonWidth * 2);
+
+      do {
+        newTop = Math.floor(Math.random() * (maxHeight + 1));
+      } while (Math.abs(newTop - button.offsetTop) < buttonHeight * 2);
+
+      button.style.left = `${newLeft}px`;
+      button.style.top = `${newTop}px`;
+    });
+  });
+
+  const yesBtn = document.getElementById("yes-btn")!;
+  const nextSection = document.getElementById("next-section")!;
+
+  yesBtn.addEventListener("click", () => {
+    document.body.style.overflow = "auto";
+    nextSection.style.visibility = "visible";
+    nextSection.style.opacity = "1";
+    nextSection.style.height = "100dvh";
+    setTimeout(() => {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  });
+</script>
