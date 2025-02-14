@@ -7,7 +7,7 @@
   <h2>will you be my valentine?</h2>
 
   <div id="options">
-    <button id="yes-btn">Yes</button>
+    <button id="yes-btn">Yes &hearts;</button>
     <button id="no-btn">No</button>
   </div>
 </section>
@@ -19,15 +19,16 @@
 <style>
   #hero {
     height: 100dvh;
+    padding: 5rem;
   }
   #next-section {
-    visibility: hidden;
-		opacity: 0;
-		height: 0;
-		display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-		transition: opacity 0.6s ease-in-out, height 0.6s ease-in-out;
+    transition:
+      opacity 0.6s ease-in-out,
+      height 0.6s ease-in-out;
+    height: 100dvh;
   }
   h1 {
     font-size: 6rem;
@@ -39,36 +40,36 @@
     text-align: center;
   }
   #options {
-    margin-top: 50px;
     position: relative;
     height: 200px;
     width: 100%;
     button {
-      height: 50px;
+      height: 75px;
       width: 150px;
       border: none;
       background-color: white;
-      color: black;
-      font-size: 1.5rem;
-      border-radius: 10px;
+      font-size: 2rem;
+      font-weight: 600;
+      border-radius: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: absolute;
       transition: all 0.3s ease-in-out;
       top: 50%;
-      transform: translateY(+50%);
-      border: 1px solid rgb(90, 49, 76);
+      transform: translateY(-50%);
+      border: 3px solid rgb(70, 4, 4);
       &:nth-child(1) {
-        left: 0;
+        left: 12%;
         z-index: 5;
+        color: rgb(247, 19, 19);
         &:hover {
           background-color: rgb(90, 49, 76);
           color: white;
         }
       }
       &:nth-child(2) {
-        right: 0;
+        right: 12%;
         transition: all 0.1s ease-in-out;
       }
     }
@@ -105,12 +106,9 @@
   const nextSection = document.getElementById("next-section")!;
 
   yesBtn.addEventListener("click", () => {
-    document.body.style.overflow = "auto";
-    nextSection.style.visibility = "visible";
-    nextSection.style.opacity = "1";
-    nextSection.style.height = "100dvh";
-    setTimeout(() => {
+    // document.body.style.overflowY = "auto";
+    requestAnimationFrame(() => {
       nextSection.scrollIntoView({ behavior: "smooth" });
-    }, 300);
+    });
   });
 </script>
