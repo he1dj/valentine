@@ -32,17 +32,10 @@ import Header from "../components/Header.astro";
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
         const links = document.querySelectorAll("header nav a");
-        console.log("Links found:", links.length); // Debug: log number of links found
-
-        links.forEach((link, index) => {
+        links.forEach((link) => {
           const anchor = link;
-          console.log(`Checking link ${index + 1}:`, anchor.href); // Debug: log each link's href
-
           if (anchor.href === window.location.href) {
-            console.log(`Match found for link: ${anchor.href}`); // Debug: log when match is found
             anchor.classList.add("active");
-          } else {
-            console.log(`No match for link: ${anchor.href}`); // Debug: log when no match is found
           }
         });
       });
