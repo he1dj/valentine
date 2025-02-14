@@ -20,16 +20,6 @@ import Header from "../components/Header.astro";
         }, 0);
       });
     </script>
-  </head>
-  <body>
-    <div id="container">
-      <!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
-      <Header />
-      <main>
-        <slot />
-      </main>
-    </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const links = document.querySelectorAll("nav a");
@@ -41,6 +31,14 @@ import Header from "../components/Header.astro";
         });
       });
     </script>
+  </head>
+  <body>
+    <div id="container">
+      <Header />
+      <main>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
 
