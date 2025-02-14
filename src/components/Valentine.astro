@@ -1,5 +1,5 @@
 ---
-
+import Image from "astro/components/Image.astro";
 ---
 
 <section id="hero">
@@ -21,14 +21,24 @@
 
   <div class="item">
     <div class="polaroid">
-      <img src="../assets/images/photo1.jpg" />
+      <Image
+        src={import("../assets/images/photo1.jpg")}
+        alt=""
+        format="webp"
+        loading="lazy"
+      />
       <div class="caption">This is us</div>
     </div>
   </div>
 
   <div class="item">
     <div class="polaroid">
-      <img src="../assets/images/photo2.jpg" />
+      <Image
+        src={import("../assets/images/photo2.jpg")}
+        alt=""
+        format="webp"
+        loading="lazy"
+      />
       <div class="caption">Also us, but drinking some juice</div>
     </div>
   </div>
@@ -42,14 +52,24 @@
 
   <div class="item">
     <div class="polaroid">
-      <img src="../assets/images/photo3.jpg" />
+      <Image
+        src={import("../assets/images/photo3.jpg")}
+        alt=""
+        format="webp"
+        loading="lazy"
+      />
       <div class="caption">This is me</div>
     </div>
   </div>
 
   <div class="item">
     <div class="polaroid">
-      <img src="../assets/images/photo4.jpg" />
+      <Image
+        src={import("../assets/images/photo4.jpg")}
+        alt=""
+        format="webp"
+        loading="lazy"
+      />
       <div class="caption">And this is you</div>
     </div>
   </div>
