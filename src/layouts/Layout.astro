@@ -7,7 +7,7 @@ import Header from "../components/Header.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>Will you be my valentine?</title>
     <script>
@@ -29,6 +29,18 @@ import Header from "../components/Header.astro";
         <slot />
       </main>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("nav a");
+        links.forEach((link) => {
+          const anchor = link as HTMLAnchorElement;
+          if (anchor.href === window.location.href) {
+            anchor.classList.add("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
 
@@ -88,15 +100,3 @@ import Header from "../components/Header.astro";
     }
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll("nav a");
-    links.forEach((link) => {
-      const anchor = link as HTMLAnchorElement;
-      if (anchor.href === window.location.href) {
-        anchor.classList.add("active");
-      }
-    });
-  });
-</script>
