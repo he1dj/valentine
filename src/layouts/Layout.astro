@@ -20,17 +20,6 @@ import Header from "../components/Header.astro";
         }, 0);
       });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const links = document.querySelectorAll("nav a");
-        links.forEach((link) => {
-          const anchor = link as HTMLAnchorElement;
-          if (anchor.href === window.location.href) {
-            anchor.classList.add("active");
-          }
-        });
-      });
-    </script>
   </head>
   <body>
     <div id="container">
@@ -39,6 +28,18 @@ import Header from "../components/Header.astro";
         <slot />
       </main>
     </div>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("header nav a");
+        links.forEach((link) => {
+          const anchor = link;
+          if (anchor.href === window.location.href) {
+            anchor.classList.add("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
 
